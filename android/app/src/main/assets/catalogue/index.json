@@ -1,0 +1,412 @@
+[
+  {
+    "id": "petzold-minuet-g",
+    "title": "Minuet in G",
+    "composer": "Christian Petzold",
+    "work": "BWV Anh. 114",
+    "sourceId": 75,
+    "credit": "Allen Garvin; Bach-Gesellschaft edition. Formerly attributed to J. S. Bach.",
+    "key": "G major",
+    "bpm": 90,
+    "excerpt": [
+      1,
+      8
+    ],
+    "license": "Public Domain",
+    "sourceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=75",
+    "sourceSha256": "aa6c19e6fecf20753591d739f9e6cf32f3d925fa8a50245c011c8928a1cd1d83",
+    "audit": {
+      "hard": {
+        "measures": 64,
+        "notes": 408,
+        "onsets": 276,
+        "durationTicks": 184320,
+        "ties": 0
+      },
+      "medium": {
+        "measures": 64,
+        "notes": 398,
+        "onsets": 268,
+        "durationTicks": 184320,
+        "ties": 0
+      },
+      "easy": {
+        "measures": 64,
+        "notes": 318,
+        "onsets": 254,
+        "durationTicks": 184320,
+        "ties": 0
+      }
+    },
+    "midiVerified": true
+  },
+  {
+    "id": "bach-prelude-c",
+    "title": "Prelude in C major",
+    "composer": "J. S. Bach",
+    "work": "BWV 846",
+    "sourceId": 5,
+    "credit": "Tobias Erbsland, Mutopia edition",
+    "key": "C major",
+    "bpm": 72,
+    "excerpt": [
+      1,
+      4
+    ],
+    "license": "Public Domain",
+    "sourceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=5",
+    "sourceSha256": "afa237b10637ca7839b4c9e98b64ba89c781e2cfc1b980679b2632a31951aacd",
+    "audit": {
+      "hard": {
+        "measures": 35,
+        "notes": 617,
+        "onsets": 545,
+        "durationTicks": 134400,
+        "ties": 68
+      },
+      "medium": {
+        "measures": 35,
+        "notes": 551,
+        "onsets": 479,
+        "durationTicks": 134400,
+        "ties": 0
+      },
+      "easy": {
+        "measures": 35,
+        "notes": 448,
+        "onsets": 447,
+        "durationTicks": 134400,
+        "ties": 0
+      }
+    },
+    "midiVerified": true
+  },
+  {
+    "id": "beethoven-fur-elise",
+    "title": "Für Elise",
+    "composer": "Ludwig van Beethoven",
+    "work": "WoO 59",
+    "sourceId": 931,
+    "credit": "Stelios Samelis; Breitkopf & Härtel, 1888",
+    "key": "A minor",
+    "bpm": 72,
+    "excerpt": [
+      0,
+      8
+    ],
+    "license": "Public Domain",
+    "sourceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=931",
+    "sourceSha256": "828a7bd1b42e441fe1b0eb0389ba46f1502dab28bbe488389e635fb446ba7a67",
+    "audit": {
+      "hard": {
+        "measures": 127,
+        "notes": 1041,
+        "onsets": 785,
+        "durationTicks": 180000,
+        "ties": 0
+      },
+      "medium": {
+        "measures": 127,
+        "notes": 769,
+        "onsets": 572,
+        "durationTicks": 180000,
+        "ties": 0
+      },
+      "easy": {
+        "measures": 127,
+        "notes": 659,
+        "onsets": 558,
+        "durationTicks": 180000,
+        "ties": 0
+      }
+    },
+    "midiVerified": true
+  },
+  {
+    "id": "burgmuller-arabesque",
+    "title": "Arabesque",
+    "composer": "Friedrich Burgmüller",
+    "work": "Op. 100 No. 2",
+    "sourceId": 203,
+    "credit": "Bas Wassink; Collection Litolff, 19th century",
+    "key": "A minor",
+    "bpm": 100,
+    "excerpt": [
+      1,
+      8
+    ],
+    "license": "Public Domain",
+    "sourceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=203",
+    "sourceSha256": "9ee203a6c2059700b10d45a7a1fd7a122803793af9a2e328d634bee538819a94",
+    "audit": {
+      "hard": {
+        "measures": 55,
+        "notes": 361,
+        "onsets": 208,
+        "durationTicks": 105600,
+        "ties": 4
+      },
+      "medium": {
+        "measures": 55,
+        "notes": 293,
+        "onsets": 195,
+        "durationTicks": 105600,
+        "ties": 4
+      },
+      "easy": {
+        "measures": 55,
+        "notes": 216,
+        "onsets": 187,
+        "durationTicks": 105600,
+        "ties": 4
+      }
+    },
+    "midiVerified": true
+  },
+  {
+    "id": "handel-sonatina-bb",
+    "title": "Sonatina in B-flat major",
+    "composer": "G. F. Handel",
+    "work": "HWV 585",
+    "sourceId": 98,
+    "credit": "David Maddock; Handel's Werke, 1859",
+    "key": "B-flat major",
+    "bpm": 90,
+    "excerpt": [
+      1,
+      8
+    ],
+    "license": "Public Domain",
+    "sourceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=98",
+    "sourceSha256": "529f79232d0d008a9502fc8e6d05ff8b75f5ec84e7d67d6e9c04dae21e0ebf63",
+    "audit": {
+      "hard": {
+        "measures": 19,
+        "notes": 231,
+        "onsets": 154,
+        "durationTicks": 72960,
+        "ties": 0
+      },
+      "medium": {
+        "measures": 19,
+        "notes": 190,
+        "onsets": 139,
+        "durationTicks": 72960,
+        "ties": 0
+      },
+      "easy": {
+        "measures": 19,
+        "notes": 146,
+        "onsets": 128,
+        "durationTicks": 72960,
+        "ties": 0
+      }
+    },
+    "midiVerified": true
+  },
+  {
+    "id": "clementi-sonatina-c",
+    "title": "Sonatina in C — I. Spiritoso",
+    "composer": "Muzio Clementi",
+    "work": "Op. 36 No. 1, first movement",
+    "sourceId": 804,
+    "credit": "Brian D. Rude; G. Schirmer Sonatina Album, 1893",
+    "key": "C major",
+    "bpm": 104,
+    "excerpt": [
+      1,
+      8
+    ],
+    "license": "Public Domain",
+    "sourceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=804",
+    "sourceSha256": "788160d26cfc5d637bd531124607d3136df105004ece2c2b1154629226751e04",
+    "audit": {
+      "hard": {
+        "measures": 76,
+        "notes": 666,
+        "onsets": 514,
+        "durationTicks": 291840,
+        "ties": 0
+      },
+      "medium": {
+        "measures": 76,
+        "notes": 614,
+        "onsets": 462,
+        "durationTicks": 291840,
+        "ties": 0
+      },
+      "easy": {
+        "measures": 76,
+        "notes": 520,
+        "onsets": 444,
+        "durationTicks": 291840,
+        "ties": 0
+      }
+    },
+    "midiVerified": true
+  },
+  {
+    "id": "chopin-prelude-e",
+    "title": "Prelude in E minor",
+    "composer": "Frédéric Chopin",
+    "work": "Op. 28 No. 4",
+    "sourceId": 468,
+    "credit": "Magnus Lewis-Smith; Peters, 1879",
+    "key": "E minor",
+    "bpm": 64,
+    "excerpt": [
+      1,
+      8
+    ],
+    "license": "Public Domain",
+    "sourceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=468",
+    "sourceSha256": "d4fca574bc3c3ad810ee643d42b7299e1c97b3b8b3fa379c3d7f77edb02f6192",
+    "audit": {
+      "hard": {
+        "measures": 26,
+        "notes": 602,
+        "onsets": 191,
+        "durationTicks": 96960,
+        "ties": 2
+      },
+      "medium": {
+        "measures": 26,
+        "notes": 258,
+        "onsets": 116,
+        "durationTicks": 96960,
+        "ties": 2
+      },
+      "easy": {
+        "measures": 26,
+        "notes": 106,
+        "onsets": 80,
+        "durationTicks": 96960,
+        "ties": 2
+      }
+    },
+    "midiVerified": true
+  },
+  {
+    "id": "chopin-prelude-cm",
+    "title": "Prelude in C minor",
+    "composer": "Frédéric Chopin",
+    "work": "Op. 28 No. 20",
+    "sourceId": 472,
+    "credit": "Magnus Lewis-Smith; Edition Peters",
+    "key": "C minor",
+    "bpm": 60,
+    "excerpt": [
+      1,
+      4
+    ],
+    "license": "Public Domain",
+    "sourceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=472",
+    "sourceSha256": "fd6e30e421d4b34197cfa2b6d9d420e0c941edbaa2b61d5e1883e79d815bef5d",
+    "audit": {
+      "hard": {
+        "measures": 13,
+        "notes": 286,
+        "onsets": 61,
+        "durationTicks": 49920,
+        "ties": 0
+      },
+      "medium": {
+        "measures": 13,
+        "notes": 261,
+        "onsets": 61,
+        "durationTicks": 49920,
+        "ties": 0
+      },
+      "easy": {
+        "measures": 13,
+        "notes": 74,
+        "onsets": 61,
+        "durationTicks": 49920,
+        "ties": 0
+      }
+    },
+    "midiVerified": true
+  },
+  {
+    "id": "bach-invention-f",
+    "title": "Invention No. 8 in F major",
+    "composer": "J. S. Bach",
+    "work": "BWV 779",
+    "sourceId": 61,
+    "credit": "Allen Garvin; Bach-Gesellschaft edition",
+    "key": "F major",
+    "bpm": 88,
+    "excerpt": [
+      1,
+      8
+    ],
+    "license": "Public Domain",
+    "sourceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=61",
+    "sourceSha256": "ddc634821a618e9a5e9ffcefbd96005bd02bd1f12573e2fefc4e6e6653d83ebe",
+    "audit": {
+      "hard": {
+        "measures": 34,
+        "notes": 598,
+        "onsets": 373,
+        "durationTicks": 97920,
+        "ties": 0
+      },
+      "medium": {
+        "measures": 34,
+        "notes": 394,
+        "onsets": 299,
+        "durationTicks": 97920,
+        "ties": 0
+      },
+      "easy": {
+        "measures": 34,
+        "notes": 328,
+        "onsets": 296,
+        "durationTicks": 97920,
+        "ties": 0
+      }
+    },
+    "midiVerified": true
+  },
+  {
+    "id": "debussy-arabesque",
+    "title": "Arabesque No. 1",
+    "composer": "Claude Debussy",
+    "work": "L. 66 No. 1",
+    "sourceId": 1777,
+    "credit": "Keith O'Hara; Durand et Fils, 1904",
+    "key": "E major",
+    "bpm": 72,
+    "excerpt": [
+      6,
+      13
+    ],
+    "license": "Public Domain",
+    "sourceUrl": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1777",
+    "sourceSha256": "b3ddf344b94e48f90e9a4337f597463c9740249590538c7c3ab64803a9f09e69",
+    "audit": {
+      "hard": {
+        "measures": 107,
+        "notes": 1557,
+        "onsets": 1018,
+        "durationTicks": 408960,
+        "ties": 57
+      },
+      "medium": {
+        "measures": 107,
+        "notes": 1234,
+        "onsets": 742,
+        "durationTicks": 408960,
+        "ties": 45
+      },
+      "easy": {
+        "measures": 107,
+        "notes": 780,
+        "onsets": 661,
+        "durationTicks": 408960,
+        "ties": 30
+      }
+    },
+    "midiVerified": true
+  }
+]
