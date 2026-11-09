@@ -36,7 +36,7 @@ Windows: use `gradlew.bat`. The debug APK is `app/build/outputs/apk/debug/app-de
 
 ## Modes
 
-Select **Flashcards**, **Song Mode**, or **Catalogue** on the start screen. All have a three-second countdown. Flashcards require solo key presses; songs can include rolled chords and simultaneous left/right hand parts.
+Select **Sight Reading** or **Catalogue** on the start screen. On the Sight Reading landing page, leave **Song mode** unchecked for timed single-note flashcards, or check it for generated songs without a round time limit. This choice is retained when switching modes. All variants have a three-second preparation countdown. Flashcards require solo key presses; songs can include rolled chords and simultaneous left/right hand parts.
 
 ### Flashcards
 
@@ -69,7 +69,7 @@ Ten complete, offline piano works are bundled, each with three complete versions
 9. Bach — Invention No. 8 in F major, BWV 779
 10. Debussy — Arabesque No. 1, L. 66 No. 1
 
-Choose a piece and version before starting:
+Choose a piece and version before starting. No song is initially selected, and Start is disabled until a song is selected and MIDI is connected. On wider screens, songs appear in a scrollable list on the right, with the selected title above and a green check on its row. On narrow phones, use the selection control at the top of the options:
 
 - **Hard / Original (default):** pitches, written values, independent voices, ties, rests, pickups, grace notes, meter/key/clef changes from the source edition. Written repeats are expanded into the full practice sequence (so performance-measure counts can exceed the original printed measure count).
 - **Medium:** a clearly labelled practice reduction preserving the melody contour and onset sequence, thinning right-hand chords to three notes and left-hand chords to two, with quarter-note bass accompaniment and an 80% practice tempo.
@@ -88,6 +88,8 @@ Measures are vertically virtualized for full works and scroll automatically to t
 ## Settings
 
 Changes apply between rounds and survive replay and rotation, but are not saved across process restarts.
+
+Settings live at the top right inside the practice card and are disabled during countdown and playback. The card footer keeps range/key information at the bottom left and MIDI device status and loading errors at the bottom right on every screen.
 
 - **Octave range:** lowest/highest full octave, inclusive, applies to Flashcards and generated Song Mode. Default **3–5 (C3–B5)**. Octaves 0–8 are selectable; invalid reversed ranges cannot be selected. A range takes priority over forcing both hands: octave 4 alone produces only C4–B4, so the bass part rests. Catalogue preserves its written registers. Choose endpoints your keyboard can actually play.
 - **Include chromatic notes:** off by default. In flashcards, enables all semitones within the range. In songs, allows C, G, F, D and B-flat major, with standard key signatures on both staves. Occasional borrowed naturals on weak beats cancel key-signature notes, followed by a diatonic restoration. Temporary accidentals apply to the same letter and octave on the same staff for the remainder of a measure, and reset at the next bar. Repeated accidentals are suppressed while effective; restoring a sharp/flat in the same bar is explicitly marked. Chromatic off generates white-key C-major music without these alterations.
@@ -109,7 +111,7 @@ Run a full round; confirm flashcards reject extra keys, songs accept all require
 
 The active game fits its staff proportionally inside the available window height, with a side-by-side scoreboard on short or wide screens. Welcome and results screens scroll independently; entering a round resets their scroll position. Status-bar and display-cutout insets are respected.
 
-The 47 JVM tests cover the existing modes plus validation of all 30 catalogue assets, complete pitch-only playback across all versions/hand combinations, guided playback of all ten originals, source theme/register checks, independent sustained notes/ties, excerpts, and settings. The 24 on-device Compose tests cover existing layouts and Catalogue selection, hand/excerpt/difficulty controls, original notation, full-work progress, source credits and compact portrait/landscape scrolling on the Galaxy Tab E (API 25). Run with a connected device:
+The 48 JVM tests cover the sight-reading choice plus validation of all 30 catalogue assets, complete pitch-only playback across all versions/hand combinations, guided playback of all ten originals, source theme/register checks, independent sustained notes/ties, excerpts, and settings. The 27 on-device Compose tests cover layouts, the Sight Reading checkbox, persistent footer status/errors, empty and selected Catalogue states, hand/excerpt/difficulty controls, original notation, full-work progress, source credits and compact portrait/landscape scrolling on the Galaxy Tab E (API 25). Run with a connected device:
 
 ```sh
 ./gradlew connectedDebugAndroidTest

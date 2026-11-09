@@ -56,6 +56,8 @@ class CatalogueDeviceTest {
                 }
             }
         }
+        compose.onNodeWithText("Select song below").performScrollTo().assertIsDisplayed()
+        compose.onNodeWithText("Play selected piece →").performScrollTo().assertIsNotEnabled()
         compose.onNodeWithText("Hard / Original").performScrollTo().assertIsSelected()
         compose.onNodeWithText("Medium").performScrollTo().performClick()
         compose.onNodeWithTag("catalogue-right-hand").performScrollTo().performClick()
@@ -68,8 +70,43 @@ class CatalogueDeviceTest {
             assertEquals(Difficulty.MEDIUM, state.value.catalogueOptions.difficulty)
             assertTrue(state.value.catalogueOptions.leftHand && !state.value.catalogueOptions.rightHand && state.value.catalogueOptions.excerpt)
         }
-        compose.onNodeWithText("Play selected piece →").performScrollTo().assertIsDisplayed()
+        compose.onNodeWithText("Play selected piece →").performScrollTo().assertIsEnabled()
         screenshot("catalogue-phone-controls")
+    }
+
+    @Test fun wideCatalogueListShowsSelectionAndKeepsOptionsIndependent() {
+        orient(true)
+        val repo = repository
+        val state = mutableStateOf(GameState(mode = GameMode.CATALOGUE))
+        val connected = mutableStateOf(true)
+        compose.setContent {
+            MaterialTheme {
+                Box(Modifier.requiredSize(820.dp, 560.dp)) {
+                    SprintScreen(state.value, "Connected: Test piano", connected.value, {}, {}, {}, {},
+                        catalogueEntries = repo.entries,
+                        onCatalogueOptions = { state.value = state.value.copy(catalogueOptions = it) })
+                }
+            }
+        }
+        compose.onNodeWithTag("catalogue-picker").assertDoesNotExist()
+        compose.onNodeWithTag("catalogue-selection").assertTextEquals("Select song below")
+        compose.onNodeWithText("Play selected piece →").performScrollTo().assertIsNotEnabled()
+        compose.onNodeWithTag("catalogue-song-list").performScrollToNode(hasText("Arabesque No. 1"))
+        compose.onNodeWithTag("catalogue-song-debussy-arabesque").performClick().assertIsSelected()
+        compose.onNodeWithTag("catalogue-selected-check", useUnmergedTree = true).assertIsDisplayed()
+        compose.onNodeWithTag("catalogue-selection").assertTextEquals("Arabesque No. 1")
+        compose.onNodeWithText("Medium").performScrollTo().performClick()
+        compose.onNodeWithText("Play selected piece →").performScrollTo().assertIsEnabled()
+        compose.runOnIdle {
+            assertEquals("debussy-arabesque", state.value.catalogueOptions.pieceId)
+            connected.value = false
+        }
+        compose.onNodeWithText("Play selected piece →").assertIsNotEnabled()
+        compose.onNodeWithTag("catalogue-song-list").performScrollToNode(hasText("Minuet in G"))
+        compose.onNodeWithTag("catalogue-song-petzold-minuet-g").performClick().assertIsSelected()
+        compose.onNodeWithTag("catalogue-selection").assertTextEquals(repo.entries.first { it.id == "petzold-minuet-g" }.title)
+        compose.onAllNodesWithTag("catalogue-selected-check", useUnmergedTree = true).assertCountEquals(1)
+        screenshot("catalogue-wide-selection")
     }
 
     private fun score(id: String, width: Int, height: Int, options: CatalogueOptions = CatalogueOptions(id), focus: Int? = null) {
@@ -103,7 +140,7 @@ class CatalogueDeviceTest {
         compose.setContent {
             MaterialTheme {
                 Box(Modifier.requiredSize(560.dp, 330.dp)) {
-                    SprintScreen(GameState(mode = GameMode.CATALOGUE), "Connected", true, {}, {}, {}, {}, catalogueEntries = repo.entries)
+                    SprintScreen(GameState(mode = GameMode.CATALOGUE, catalogueOptions = CatalogueOptions("petzold-minuet-g")), "Connected", true, {}, {}, {}, {}, catalogueEntries = repo.entries)
                 }
             }
         }

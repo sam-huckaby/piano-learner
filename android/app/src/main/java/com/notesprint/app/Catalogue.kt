@@ -11,7 +11,7 @@ enum class Difficulty(val label: String, val description: String, val tempoFacto
 }
 
 data class CatalogueOptions(
-    val pieceId: String = "petzold-minuet-g", val difficulty: Difficulty = Difficulty.HARD,
+    val pieceId: String = "", val difficulty: Difficulty = Difficulty.HARD,
     val excerpt: Boolean = false, val leftHand: Boolean = true, val rightHand: Boolean = true,
 ) { init { require(leftHand || rightHand) } }
 

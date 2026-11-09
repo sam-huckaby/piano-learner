@@ -28,6 +28,7 @@ data class GameState(
     val chromatic: Boolean = false,
     val showNoteName: Boolean = false,
     val mode: GameMode = GameMode.FLASHCARDS,
+    val sightReadingSong: Boolean = false,
     val range: NoteRange = NoteRange(),
     val rhythm: Boolean = false,
     val song: Song? = null,
@@ -76,7 +77,9 @@ class GameEngine(
     }
     fun setChromatic(value: Boolean) = configure { copy(chromatic = value) }
     fun setShowNoteName(value: Boolean) = configure { copy(showNoteName = value) }
-    fun setMode(value: GameMode) = configure { copy(mode = value) }
+    fun setMode(value: GameMode) = configure {
+        copy(mode = value, sightReadingSong = if (value == GameMode.CATALOGUE) sightReadingSong else value == GameMode.SONG)
+    }
     fun setRange(value: NoteRange) = configure { copy(range = value) }
     fun setRhythm(value: Boolean) = configure { copy(rhythm = value) }
     fun setMaxNotesPerHand(value: Int) { require(value in 1..6); configure { copy(maxNotesPerHand = value) } }
@@ -85,7 +88,7 @@ class GameEngine(
 
     private fun fresh(phase: Phase = Phase.WELCOME) = GameState(
         phase = phase, chromatic = state.chromatic, showNoteName = state.showNoteName,
-        mode = state.mode, range = state.range, rhythm = state.rhythm,
+        mode = state.mode, sightReadingSong = state.sightReadingSong, range = state.range, rhythm = state.rhythm,
         maxNotesPerHand = state.maxNotesPerHand, twoHands = state.twoHands,
         catalogueOptions = state.catalogueOptions,
     )

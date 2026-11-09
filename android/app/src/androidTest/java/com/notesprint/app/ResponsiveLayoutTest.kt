@@ -170,7 +170,7 @@ class ResponsiveLayoutTest {
                     onRhythm = { state.value = state.value.copy(rhythm = it) })
             }
         }
-        compose.onNodeWithText("Song Mode").performScrollTo().performClick()
+        compose.onNodeWithTag("song-mode").performScrollTo().performClick()
         compose.onNodeWithText("Settings ⋮").performClick()
         compose.onNodeWithText("Rhythm").performClick()
         compose.onNodeWithText("Octave range: 3–5").performScrollTo().performClick()
@@ -183,6 +183,50 @@ class ResponsiveLayoutTest {
             assertTrue(state.value.mode == GameMode.SONG && state.value.rhythm)
             assertTrue(state.value.range == NoteRange(4, 4))
         }
+    }
+
+    @Test fun sightReadingCheckboxControlsVariantAndRemembersChoiceAcrossModes() {
+        val engine = GameEngine()
+        val state = mutableStateOf(engine.state)
+        compose.setContent {
+            MaterialTheme {
+                SprintScreen(state.value, "Connected: Test piano", true,
+                    { engine.start(0); state.value = engine.state }, {}, {}, {},
+                    onMode = { engine.setMode(it); state.value = engine.state })
+            }
+        }
+        compose.onNodeWithText("NOTE SPRINT").assertDoesNotExist()
+        compose.onNodeWithText("MIDI SIGHT-READING DRILL").assertDoesNotExist()
+        compose.onNodeWithText("Flashcards").assertDoesNotExist()
+        compose.onNodeWithTag("song-mode").performScrollTo().assertIsOff().performClick().assertIsOn()
+        compose.onNodeWithText("Generate song →").performScrollTo().assertIsEnabled()
+        compose.onNode(hasText("Catalogue") and hasClickAction()).performScrollTo().performClick()
+        compose.onNode(hasText("Sight Reading") and hasClickAction()).performScrollTo().performClick()
+        compose.onNodeWithTag("song-mode").performScrollTo().assertIsOn().performClick().assertIsOff()
+        compose.onNodeWithText("Start the challenge →").performScrollTo().performClick()
+        compose.onNodeWithText("Settings ⋮").assertIsNotEnabled()
+        compose.runOnIdle {
+            engine.tick(3000)
+            state.value = engine.state
+        }
+        compose.onNodeWithText("TIME").assertIsDisplayed()
+        compose.onNodeWithTag("midi-status").assertTextEquals("Connected: Test piano")
+    }
+
+    @Test fun footerKeepsDeviceAndErrorsVisibleDuringPractice() {
+        val state = mutableStateOf(GameState(phase = Phase.PLAYING, note = MusicNote(60)))
+        compose.setContent {
+            MaterialTheme {
+                SprintScreen(state.value, "Connected: Test piano", true, {}, {}, {}, {}, error = "Unable to load score")
+            }
+        }
+        compose.onNodeWithTag("midi-status").assertTextEquals("Connected: Test piano").assertIsDisplayed()
+        compose.onNodeWithTag("session-error").assertTextEquals("Unable to load score").assertIsDisplayed()
+        val range = compose.onNodeWithTag("range-key-info").fetchSemanticsNode().boundsInRoot
+        val status = compose.onNodeWithTag("midi-status").fetchSemanticsNode().boundsInRoot
+        val staff = compose.onNodeWithTag("grand-staff").fetchSemanticsNode().boundsInRoot
+        assertTrue(range.left < status.left)
+        assertTrue(staff.bottom <= range.top && staff.bottom <= status.top)
     }
 
     @Test fun compactWelcomeAndResultsScrollWithoutMovingGameplayOffscreen() {

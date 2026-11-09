@@ -5,6 +5,24 @@ import org.junit.Test
 import kotlin.random.Random
 
 class GameEngineTest {
+    @Test fun sightReadingChoiceSurvivesCatalogueReplayAndReset() {
+        val game = GameEngine()
+        assertFalse(game.state.sightReadingSong)
+        game.setMode(GameMode.SONG)
+        game.setMode(GameMode.CATALOGUE)
+        assertTrue(game.state.sightReadingSong)
+        game.setMode(if (game.state.sightReadingSong) GameMode.SONG else GameMode.FLASHCARDS)
+        game.start(0)
+        game.tick(3000)
+        game.tick(123000)
+        assertEquals(Phase.PLAYING, game.state.phase)
+        game.reset()
+        assertTrue(game.state.sightReadingSong)
+        game.setMode(GameMode.FLASHCARDS)
+        game.setMode(GameMode.CATALOGUE)
+        assertFalse(game.state.sightReadingSong)
+    }
+
     @Test fun noteNameDefaultsOffAndSelectionSurvivesRoundsAndReset() {
         val game = GameEngine()
         assertFalse(game.state.showNoteName)
